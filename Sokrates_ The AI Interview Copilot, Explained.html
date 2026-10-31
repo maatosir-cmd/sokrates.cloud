@@ -1,0 +1,472 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sokrates: The AI Interview Copilot, Explained</title>
+<meta name="description" content="Sokrates is an AI interview copilot for Mac and Windows: live transcription, real-time AI answers in a private overlay, scored mock interviews and a free plan.">
+<link rel="canonical" href="https://www.sokrates.cloud/guides/ai-interview-copilot">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sokrates">
+<meta property="og:title" content="Sokrates: The AI Interview Copilot, Explained">
+<meta property="og:description" content="Hear the question. See the answer. Live transcription, real-time AI answers in a private overlay, scored mock interviews and a free plan.">
+<meta property="og:url" content="https://www.sokrates.cloud/guides/ai-interview-copilot">
+<meta property="article:published_time" content="2026-10-29">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sokrates: The AI Interview Copilot, Explained">
+<meta name="twitter:description" content="Live transcription, real-time AI answers in a private overlay, scored mock interviews and a free plan. Mac and Windows.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sokrates: The AI Interview Copilot, Explained",
+  "description": "Sokrates is an AI interview copilot for Mac and Windows: live transcription, real-time AI answers in a private overlay, scored mock interviews and a free plan.",
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "mainEntityOfPage": "https://www.sokrates.cloud/guides/ai-interview-copilot",
+  "author": { "@type": "Organization", "name": "Sokrates", "url": "https://www.sokrates.cloud" },
+  "publisher": { "@type": "Organization", "name": "Solomon Labs LLC", "url": "https://www.sokrates.cloud" },
+  "about": { "@type": "SoftwareApplication", "name": "Sokrates", "applicationCategory": "BusinessApplication", "operatingSystem": "macOS (Apple Silicon), Windows 10/11", "url": "https://www.sokrates.cloud" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is the best AI tool to help during a live interview?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Look for an AI interview assistant that hears both sides of the call, answers in a shape you can use while talking, and stays out of your shared screen. Sokrates does all three on Mac and Windows, with a free plan that resets daily." } },
+    { "@type": "Question", "name": "How do I answer system design questions in real time?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Scope first: state one assumption with a number. Then give the headline architecture, walk the stages in order, and name the trade-offs. Sokrates lays out exactly that shape live, and Go Deeper handles the follow-up." } },
+    { "@type": "Question", "name": "Is there an AI that listens to the interviewer and suggests answers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Sokrates transcribes the interviewer and you on separate channels and drafts an answer as each question lands. No bot joins the call." } },
+    { "@type": "Question", "name": "Can I use AI in a Zoom interview?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sokrates works alongside Zoom, Google Meet and Microsoft Teams with nothing installed in the meeting app, and its overlay is excluded from screen capture. Whether outside help is allowed is up to each employer, so read the interview guidelines and follow them." } },
+    { "@type": "Question", "name": "Is there an AI assistant for sales calls that suggests responses?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Meeting mode gives you 3–6 short bullets with the facts and arguments you need, helps when a prospect pushes back on price or timing, and ends with a recap and action items." } },
+    { "@type": "Question", "name": "Does the overlay show up when I share my screen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It's excluded from screen capture at the operating-system level (NSWindow sharingType on macOS, SetWindowDisplayAffinity on Windows), so it doesn't appear in a shared screen or a recording." } },
+    { "@type": "Question", "name": "Do your transcripts stay on your device?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A saved transcript does: \"Save transcript\" writes the file to a folder you choose. Your session history also keeps transcripts and answers, and you can delete any session. Audio is never stored." } },
+    { "@type": "Question", "name": "Does Sokrates work on Mac and Windows?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes: macOS on Apple Silicon and Windows 10/11 64-bit, with one account on both. Linux and Intel Macs aren't supported." } },
+    { "@type": "Question", "name": "Is there an interview assistant free plan?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. One live session a day with 10 minutes of transcription, 3 snapshots, every mode and the overlay. No card, and it resets daily." } },
+    { "@type": "Question", "name": "What languages does it support?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Live transcription covers 40+ languages. Answers come in the language of the question or the session language you set, including Hebrew, right-to-left." } }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f5f6f8;
+    --text: #16181d;
+    --muted: #5b6270;
+    --border: #e2e5ea;
+    --accent: #3a4fd8;
+    --accent-ink: #ffffff;
+    --measure: 720px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --surface: #181b21;
+      --text: #e9ebef;
+      --muted: #9aa1ad;
+      --border: #2a2e36;
+      --accent: #8b9bff;
+      --accent-ink: #0f1115;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  article { max-width: var(--measure); margin: 0 auto; padding: 56px 16px 80px; }
+  .eyebrow {
+    margin: 0 0 12px;
+    font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 { font-size: clamp(30px, 5vw, 42px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 12px; }
+  .byline { color: var(--muted); font-size: 15px; margin: 0 0 32px; }
+  .lead { font-size: 19px; }
+  h2 {
+    font-size: 27px; line-height: 1.25; letter-spacing: -0.01em;
+    margin: 64px 0 16px; padding-top: 24px; border-top: 1px solid var(--border);
+    scroll-margin-top: 16px;
+  }
+  h3 { font-size: 20px; line-height: 1.35; margin: 36px 0 8px; scroll-margin-top: 16px; }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 16px; padding-left: 24px; }
+  li { margin: 0 0 6px; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  strong { font-weight: 650; }
+  .line { font-weight: 600; }
+  nav.toc {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 24px; margin: 32px 0 8px;
+  }
+  nav.toc h2 { font-size: 15px; margin: 0 0 8px; padding: 0; border: 0; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  nav.toc ol { margin: 0; }
+  nav.toc li { margin: 0 0 4px; }
+  .table-wrap { overflow-x: auto; margin: 8px 0 20px; border: 1px solid var(--border); border-radius: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  thead th { background: var(--surface); font-weight: 650; }
+  tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+  tbody th { font-weight: 600; }
+  td:first-child, th:first-child { min-width: 140px; }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 48px 0 0; }
+  .cta {
+    margin: 32px 0 0; padding: 28px 24px; border-radius: 14px;
+    background: var(--surface); border: 1px solid var(--border); text-align: center;
+  }
+  .cta p { margin: 0 0 16px; font-size: 19px; font-weight: 600; }
+  .cta a.button {
+    display: inline-block; padding: 12px 22px; border-radius: 999px;
+    background: var(--accent); color: var(--accent-ink); font-weight: 650; text-decoration: none;
+  }
+  .cta .tagline { margin: 16px 0 0; font-size: 15px; font-weight: 500; color: var(--muted); }
+  kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em;
+    padding: 1px 6px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px; background: var(--surface);
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    article { padding-top: 36px; }
+    h2 { font-size: 23px; margin-top: 48px; }
+    .lead { font-size: 17px; }
+    th, td { padding: 9px 10px; }
+    td:first-child, th:first-child { min-width: 108px; }
+  }
+</style>
+</head>
+<body>
+<article>
+  <p class="eyebrow">Sokrates guide</p>
+  <h1>Sokrates: The AI Interview Copilot, Explained</h1>
+  <p class="byline">Sokrates · <time datetime="2026-10-29">29 October 2026</time></p>
+
+  <p class="lead">Sokrates is an AI interview copilot for Mac and Windows that hears both sides of a live call and streams a short answer into a private desktop overlay. The question lands, and the answer is already forming on your screen. Hear the question. See the answer.</p>
+  <p>It is a real-time interview assistant built for how conversations actually move: live interview help with real-time AI answers short enough to glance at mid-sentence, grounded in your own résumé and the job description. The same app at <a href="https://www.sokrates.cloud">sokrates.cloud</a> runs scored mock interviews before the big day, and works as an AI meeting assistant in the job after it.</p>
+  <p>You can start free, with no credit card. One app for the interview, the rehearsal, and the job after.</p>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#why-great">Why Sokrates is great</a></li>
+      <li><a href="#why-proven">Why it's proven</a></li>
+      <li><a href="#why-trustworthy">Why it's trustworthy</a></li>
+      <li><a href="#why-reputable">Why it's reputable</a></li>
+      <li><a href="#interviews">How Sokrates helps you prepare and ace the interview</a></li>
+      <li><a href="#meetings">Beyond interviews: an AI copilot for meetings and sales calls</a></li>
+      <li><a href="#choosing">Choosing the best AI interview copilot in 2026</a></li>
+      <li><a href="#faq">Frequently asked questions</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="why-great">Why Sokrates is great</h2>
+  <p>Sokrates gives you a usable answer while the question is still landing, in a shape you can use mid-sentence. Alt-tabbing to a chatbot is slow, shows on a shared screen, and returns a wall of text you can't read while talking. Sokrates is built for the forty minutes that decide it.</p>
+
+  <h3 id="live-transcription">Live transcription with AI answers, from both sides of the call</h3>
+  <p>Sokrates records your mic and your system audio as two separate, labeled channels: Interviewer and You. Both update word by word. With the mic on, it drafts an answer as each question lands, so you don't press anything.</p>
+  <p>It works with Zoom, Google Meet, Microsoft Teams, Webex, browser calls and phone calls routed through your computer: anything that plays sound. No bot joins the call, and nothing gets installed in the meeting app.</p>
+
+  <h3 id="answer-shapes">Answers shaped for a live conversation</h3>
+  <p>Every answer has a fixed shape: a few bullets to glance at (Scan), then a first-person paragraph you can read aloud (Say). That is what makes Sokrates an interview answer generator you can actually use while you're talking.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Question type</th><th scope="col">What you see on screen</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Concept, general or ML</th><td>Scan: 3–5 bullets of up to 8 words, direct answer first. Say: 50–90 words, first person</td></tr>
+        <tr><th scope="row">Coding</th><td>Say: a one-line approach. Code: a full, runnable solution. Explain: time and space complexity in 2 bullets</td></tr>
+        <tr><th scope="row">System design</th><td>Design: 6–8 one-line stages. Say: your scoping assumption and headline architecture, with a number. Then the trade-offs</td></tr>
+        <tr><th scope="row">Behavioral</th><td>Four STAR beats, then a first-person story drawn from your own résumé</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="line">Scan to glance at. Say to read aloud.</p>
+
+  <h3 id="four-ways">Four ways to ask</h3>
+  <ul>
+    <li><strong>Automatic:</strong> answers draft as the interviewer speaks.</li>
+    <li><strong>Ask from voice or Answer now:</strong> get an answer on demand, the moment you want it.</li>
+    <li><strong>Type:</strong> the chat box takes a typed question, with the recent transcript as context.</li>
+    <li><strong>Snap (screenshot to answer):</strong> <kbd>Cmd/Ctrl+Shift+S</kbd> turns an on-screen coding or design prompt into an answer.</li>
+  </ul>
+
+  <h3 id="your-context">Your résumé, your job description, your voice</h3>
+  <p>Sokrates uses your résumé and job description, plus your notes, as context. Set the company, role and round type for the session. Answers match that seniority. They never claim a job or project that isn't in your material.</p>
+  <p>A "Tell Sokrates how to answer" box on the start screen shapes every answer's tone, emphasis and what to avoid. File uploads are part of Pro.</p>
+
+  <h3 id="answer-length">Answer length control and Go Deeper</h3>
+  <p>Choose Short, Standard or Long in Settings → Answers, or from your phone. When the interviewer follows up, Go Deeper continues the answer in your voice. In a system design round, it walks the next stage the interviewer is likely to ask about.</p>
+
+  <h3 id="private-overlay">A private overlay, hidden from screen sharing</h3>
+  <p>The desktop AI overlay is excluded from screen capture by the operating system itself: NSWindow sharingType on macOS, SetWindowDisplayAffinity on Windows. It doesn't appear in a shared screen or a recording. It stays off the taskbar and has an opacity slider and a Ghost mode.</p>
+  <p>Keyboard shortcuts work while the call app has focus (Cmd on Mac, Ctrl on Windows): <kbd>Shift+A</kbd> asks from voice, <kbd>Shift+S</kbd> snaps, <kbd>Shift+M</kbd> toggles the mic, and <kbd>Shift+\</kbd> hides or shows the overlay.</p>
+
+  <h3 id="phone-companion">Phone companion app</h3>
+  <p>Open <a href="https://www.sokrates.cloud/companion">sokrates.cloud/companion</a> in Safari or Chrome; there's no app store download. Paired with the desktop, your phone mirrors answers under your webcam, and its buttons trigger Answer now, Snap, Go Deeper, Hide and Clear on the laptop.</p>
+  <p>On its own, the phone listens through its mic, photographs the laptop screen, attaches documents and runs practice. The screen is true black, has a brightness slider and larger text, and stays on for the whole session.</p>
+
+  <h3 id="real-conditions">Built for real conditions</h3>
+  <ul>
+    <li><strong>Mac and Windows:</strong> macOS on Apple Silicon and Windows 10/11 (64-bit), one account on both.</li>
+    <li><strong>Survives connection drops:</strong> a reconnect or server update carries on without losing the conversation.</li>
+    <li><strong>Speaker echo filter:</strong> a call played through your speakers isn't mistaken for your voice.</li>
+    <li><strong>Automatic updates:</strong> installed in one go, never during a session.</li>
+    <li><strong>Transcript and session summary:</strong> every session is saved to your history with its transcript, a recap and a score.</li>
+  </ul>
+
+  <h3 id="four-steps">Four steps to your first session</h3>
+  <ol>
+    <li><strong>Download</strong> for macOS (Apple Silicon) or Windows 10/11.</li>
+    <li><strong>Sign in</strong> with Google or email. The free plan starts at once, with no card.</li>
+    <li><strong>Add your context:</strong> résumé, job description and notes. Set the company, role and round type.</li>
+    <li><strong>Start the session:</strong> turn the mic on, then Ask, Snap, or let answers draft as questions land. Use Go Deeper when they follow up.</li>
+  </ol>
+  <p class="line">Four steps. Then it's muscle memory.</p>
+
+  <h2 id="why-proven">Why it's proven</h2>
+  <p>Sokrates is proven by things you can check yourself, before you pay anything. Every claim here is either a published number or something you can test on your own machine in a few minutes.</p>
+
+  <h3 id="test-free">Test it free, every day</h3>
+  <p>The free plan gives you one live session a day: 10 minutes of transcription, 3 snapshots, every mode and the overlay. It resets daily; it isn't a one-time trial. Run a mock interview, then a test call, and judge the answers on your own questions.</p>
+
+  <h3 id="verify-screen-share">Verify the screen-share behavior before it matters</h3>
+  <p>Screen-capture exclusion uses the operating system's own window settings: NSWindow sharingType on macOS and SetWindowDisplayAffinity on Windows. Before a real call, start a test meeting on Zoom or Teams with a friend, share your screen, and look. Your shared screen shows without the overlay.</p>
+
+  <h3 id="numbers">Numbers, not adjectives</h3>
+  <p>The answer shapes are fixed, so you know what you'll get before the question lands.</p>
+  <ul>
+    <li>Scan: 3–5 bullets of up to 8 words each.</li>
+    <li>Say: 50–90 words, first person.</li>
+    <li>System design: 6–8 one-line stages, with a number in the headline.</li>
+    <li>Practice: every answer scored out of 10 against a published scale.</li>
+  </ul>
+
+  <h3 id="models">Built on leading models and transcription</h3>
+  <p>Answers come from Anthropic's Claude (Haiku 5.5 on Free, Sonnet 5.5 on Pro) or OpenAI's ChatGPT models (Luna on Free, Sol on Pro), chosen per session. Live transcription runs on Speechmatics, across 40+ languages.</p>
+
+  <h3 id="shipping">Shipping in public</h3>
+  <p>Sokrates launched publicly on 19 September 2026 and is at version 0.3.71, which added answer length control. Updates install automatically between sessions, never during one. If it doesn't earn its keep, the free plan cost you nothing.</p>
+
+  <h2 id="why-trustworthy">Why it's trustworthy</h2>
+  <p>Sokrates is a privacy-first interview assistant: audio is never stored, screenshots are discarded, and your data is never sold or used to train models. You decide what stays.</p>
+
+  <h3 id="your-data">What happens to your data</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Data</th><th scope="col">What happens to it</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Audio</th><td>Processed in transit for transcription, never stored. No recordings are stored</td></tr>
+        <tr><th scope="row">Screenshots (Snap)</th><td>Processed and discarded, never kept on Sokrates servers</td></tr>
+        <tr><th scope="row">Transcripts and answers</th><td>Saved to your session history. Delete any session, any time</td></tr>
+        <tr><th scope="row">Saved transcript file</th><td>"Save transcript" writes it to a folder you choose, on your own device</td></tr>
+        <tr><th scope="row">Uploaded files (résumé, job description, notes)</th><td>Stay on your account until you remove them</td></tr>
+        <tr><th scope="row">Your account</th><td>Deletion or data export by email, handled within 30 days</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="never-sold">Never sold, never used for training</h3>
+  <p>Your data is never used to build profiles, train models or sell to third parties. Under Anthropic's API terms, nothing sent to Claude is used for training.</p>
+
+  <h3 id="providers">Named providers, no surprises</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Provider</th><th scope="col">What it does for Sokrates</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Anthropic (Claude)</th><td>Answers</td></tr>
+        <tr><th scope="row">OpenAI (ChatGPT Luna, Sol)</th><td>Answers</td></tr>
+        <tr><th scope="row">Speechmatics</th><td>Live transcription</td></tr>
+        <tr><th scope="row">Mistral AI</th><td>Reading uploaded files</td></tr>
+        <tr><th scope="row">Google Cloud Text-to-Speech</th><td>The practice narrator's voice</td></tr>
+        <tr><th scope="row">Stripe</th><td>Payments</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="private-by-design">Private by design, honest by default</h3>
+  <p>No bot joins your call, so there's no extra participant to explain and no plugin to install. That makes Sokrates a private AI meeting assistant as much as an interview one.</p>
+  <p>Sokrates says plainly what it does. The overlay is excluded from screen capture by the operating system, and that is exactly how it's described. Answers never claim experience that isn't in your material, so what you say stays yours.</p>
+
+  <h2 id="why-reputable">Why it's reputable</h2>
+  <p>Sokrates is built by a registered US company, ships a code-signed installer, publishes every price, and puts its refund policy in writing.</p>
+
+  <h3 id="company">A real company behind it</h3>
+  <p>Sokrates is a trademark of Solomon Labs LLC, registered in Wyoming, USA. The Windows installer is code-signed by Solomon Labs LLC; SmartScreen may still show a notice on first run (More info → Run anyway). Support is a real inbox: <a href="mailto:support@sokrates.cloud">support@sokrates.cloud</a>.</p>
+
+  <h3 id="pricing">Prices in public, with a free plan</h3>
+  <p>Every plan includes Interview, Practice and Meeting modes, and the overlay excluded from screen capture.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col"><span style="position:absolute;left:-9999px">Plan detail</span></th><th scope="col">Free</th><th scope="col">Pro</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Price</th><td>$0, no card</td><td>$19/week · $37/month · $69/quarter (≈$23/mo) · $179/year (≈$15/mo)</td></tr>
+        <tr><th scope="row">Live transcription</th><td>10 minutes a day, resets daily</td><td>Unlimited (fair use)</td></tr>
+        <tr><th scope="row">Snapshots</th><td>3 a day</td><td>Unlimited (fair use)</td></tr>
+        <tr><th scope="row">AI models</th><td>Claude Haiku 5.5 or ChatGPT Luna</td><td>Adds Claude Sonnet 5.5 or ChatGPT Sol</td></tr>
+        <tr><th scope="row">Overlay excluded from capture</th><td>Yes</td><td>Yes</td></tr>
+        <tr><th scope="row">File uploads (résumé, job description, notes)</th><td>Not included</td><td>Yes</td></tr>
+        <tr><th scope="row">Support</th><td>Not included</td><td>Email support</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="line">Start free. Pay when it earns its keep.</p>
+
+  <h3 id="pay-weekly">Pay weekly, cancel anytime</h3>
+  <p>The weekly interview assistant plan is $19 for a single interview loop. Past about two weeks, monthly costs less, and the quarterly plan fits a typical job search: a job search is a season, not a month. At about $23 a month on quarterly, or $15 on annual, Sokrates is an affordable interview copilot for people who interview often.</p>
+  <p>Cancel from Settings → Manage subscription; access runs to the end of the paid period. There are no credits to count mid-call, no lifetime deal and no team plan.</p>
+  <p>Buy at <a href="https://www.sokrates.cloud/buy">sokrates.cloud/buy</a> with Stripe, or inside the app; it's the same account either way. Prices are in USD.</p>
+
+  <h3 id="money-back">A 72-hour money-back guarantee</h3>
+  <p>Your first payment is covered for 72 hours, once per person: email <a href="mailto:support@sokrates.cloud">support@sokrates.cloud</a> from your account address. If you used more than 3 hours of transcription in that window, the AI costs may be deducted.</p>
+
+  <h3 id="limits">Honest about limits</h3>
+  <p>Sokrates runs on macOS with Apple Silicon and on Windows 10/11 64-bit. It doesn't support Linux or Intel Macs, and the phone companion is a web app, not an app store download. It isn't a browser extension, and you don't need a second computer.</p>
+
+  <h2 id="interviews">How Sokrates helps you prepare and ace the interview</h2>
+  <p>Sokrates covers the whole loop: rehearse with scored mock interviews, get live help in every round, then review what to tighten. Rehearse it before it counts.</p>
+
+  <h3 id="mock-interview">Before the interview: a mock interview with AI</h3>
+  <p>Practice mode is an interviewer who never runs out of questions. Pick a round, a difficulty and your focus areas. A narrator voice asks one question at a time, out loud, with no small talk.</p>
+  <p>You answer out loud too, the way you will in the room. That makes it AI interview practice with spoken questions, not a question bank, and the most direct way to practice behavioral questions out loud. After each answer, you get:</p>
+  <ul>
+    <li>a score out of 10 and a verdict that quotes your own words</li>
+    <li>what Worked, what to Improve and what you Missed</li>
+    <li>a model answer</li>
+  </ul>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Score</th><th scope="col">What it means</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">8 or more</th><td>Clear hire signal</td></tr>
+        <tr><th scope="row">6–7</th><td>Borderline</td></tr>
+        <tr><th scope="row">5</th><td>Would not pass at this level</td></tr>
+        <tr><th scope="row">3 or less</th><td>Skipped, or a one-line answer</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Rounds include general/mixed, intro/recruiter, behavioral (STAR), coding, system design, ML/data science, HR/culture fit and custom. Behavioral, intro, HR and general rounds ask about your own résumé; coding, design and ML rounds bring fresh problems. It's interview feedback AI that's like the real thing, with the feedback you never get.</p>
+
+  <h3 id="system-design">System design interview help</h3>
+  <p>AI for system design interviews has to follow how the round actually runs. Sokrates opens with a scoping assumption and a headline architecture with a number, then lays out 6–8 one-line stages and the trade-offs. System design gets a staged walkthrough, not code.</p>
+  <p>When the interviewer drills in, Go Deeper walks the next stage they're likely to ask about. If the prompt is written on screen, Snap it with <kbd>Cmd/Ctrl+Shift+S</kbd>.</p>
+
+  <h3 id="behavioral">Behavioral interviews and STAR answers</h3>
+  <p>Behavioral rounds reward structure and brevity. Sokrates works as a STAR method answer generator built from your own résumé: four STAR beats to glance at, then a first-person story to tell. It picks the project that fits the question, so you get to the point instead of losing the interviewer in the backstory.</p>
+  <p>Because answers never claim work that isn't in your material, your behavioral interview STAR answers stay true to your record.</p>
+
+  <h3 id="coding">Coding interviews and live coding rounds</h3>
+  <p>As a coding interview assistant, Sokrates starts with the problem in front of you. Snap the prompt the moment it appears and you get a one-line approach to say, a full runnable solution, and time and space complexity in two bullets.</p>
+  <p>Live coding round help is about direction: confirming the approach early keeps you off a dead-end path for twenty minutes.</p>
+
+  <h3 id="technical">Technical, ML and data science interviews</h3>
+  <p>As a technical interview copilot, Sokrates gives concept and ML questions the Scan-then-Say shape: the direct answer first in 3–5 bullets, then 50–90 words to say. For data analyst and data science interview help, it covers ML concepts and ML system design live, and Practice has a dedicated ML/data science round.</p>
+
+  <h3 id="product-manager">Product manager interviews</h3>
+  <p>PM loops lean hard on behavioral rounds. As a product manager interview assistant, Sokrates builds STAR stories from your own résumé and keeps them short enough to land. Use the "Tell Sokrates how to answer" box to set emphasis, such as leading with metrics.</p>
+
+  <h3 id="engineering-manager">Engineering manager and panel interviews</h3>
+  <p>Engineering manager interview prep starts with context. Upload the job description and your notes before the panel, and answers match the seniority of the role, drawing on details from your own material that you may not have reviewed.</p>
+  <p>For panel interview preparation, it helps that every panelist comes through the Interviewer channel, so it doesn't matter who asks. Rehearse leadership and culture-fit stories in Practice first.</p>
+
+  <h3 id="new-grads">New grads and first job interviews</h3>
+  <p>New grad interview help starts with practice. The free plan includes Practice mode every day, so you can rehearse for a first job interview out loud, with no card. The score tells you where you stand before it counts.</p>
+
+  <h3 id="languages">Interviewing in Hebrew or a second language</h3>
+  <p>Sokrates is a multilingual interview copilot. Live transcription covers 40+ languages, and answers come in the language of the question or the session language you set. That includes Hebrew, displayed right-to-left, which makes it an interview assistant in Hebrew that formats correctly.</p>
+  <p>For interview help for non-native English speakers, short phrasing on screen is the point. Scan gives you the key words and Say gives you a ready sentence when stress makes vocabulary slip. Set answer length to Short and you still sound like you. English as a second language interview help also works in Practice, which runs in any session language.</p>
+
+  <h3 id="after-interview">After the interview: transcript and session summary</h3>
+  <p>Every session lands in your history with its transcript, a recap, a score out of 10 with clarity, depth and structure call-outs, and what to tighten next time. Each real interview becomes practice for the next one. As an interview prep tool, that loop is where the improvement comes from.</p>
+
+  <h2 id="meetings">Beyond interviews: an AI copilot for meetings and sales calls</h2>
+  <p>Meeting mode makes Sokrates an AI copilot for meetings, and it's included on every plan, free included. Here you're a colleague, not a candidate: no STAR stories and no score. The facts for the moment. The recap at the end.</p>
+
+  <h3 id="facts-now">The facts you need, now</h3>
+  <p>Answers come as one Scan of 3–6 bullets of up to 10 words: the numbers, facts or arguments you need right now. You get AI notes and answers during meetings without typing while you're trying to listen.</p>
+
+  <h3 id="objection-handling">Objection handling in real time</h3>
+  <p>As an AI sales call assistant, Meeting mode follows the conversation as it turns to pushback, a deadline or scope. When a prospect pushes back on price or timing, the Scan puts the points you can pivot with in front of you. That makes it a practical discovery call assistant for a day of back-to-back calls.</p>
+
+  <h3 id="recap">A recap with action items at the end</h3>
+  <p>Each meeting ends with a recap you can paste into the follow-up: the topic, the key points and decisions, and the action items with their owners.</p>
+
+  <h3 id="client-calls">Client calls away from your desk</h3>
+  <p>As a client call copilot, Sokrates also runs on your phone. On its own, the companion listens through the phone's mic and shows answers in large text on a true-black screen. It hears through the air, so a quiet room or the car works best.</p>
+
+  <h2 id="choosing">Choosing the best AI interview copilot in 2026</h2>
+  <p>The best AI interview copilot in 2026 is one you can use mid-sentence, trust with your data, and afford for a whole search. Whether you're weighing a Final Round AI alternative, a Parakeet AI alternative, a LockedIn AI alternative, an Interview Coder alternative, a Cluely alternative or a Verve AI alternative, check these six things.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">What to check</th><th scope="col">Where Sokrates stands</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Overlay excluded from screen capture</th><td>On every plan, including free</td></tr>
+        <tr><th scope="row">Free plan</th><td>Resets daily; not a one-time trial</td></tr>
+        <tr><th scope="row">Pricing model</th><td>One Pro tier, no credits to count mid-call</td></tr>
+        <tr><th scope="row">Modes</th><td>Interview, Practice and Meeting in one native app</td></tr>
+        <tr><th scope="row">Answer format</th><td>Fixed shapes you can glance at or read aloud</td></tr>
+        <tr><th scope="row">Price</th><td>From $19 a week; $69 a quarter (≈$23/mo); $179 a year (≈$15/mo)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Comparing Final Round AI vs Sokrates, or checking Final Round AI pricing? The compare pages on <a href="https://www.sokrates.cloud">sokrates.cloud</a> set each product side by side, with the date the prices were read.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+
+  <h3>What is the best AI tool to help during a live interview?</h3>
+  <p>Look for an AI interview assistant that hears both sides of the call, answers in a shape you can use while talking, and stays out of your shared screen. Sokrates does all three on Mac and Windows, with a free plan that resets daily.</p>
+
+  <h3>How do I answer system design questions in real time?</h3>
+  <p>Scope first: state one assumption with a number. Then give the headline architecture, walk the stages in order, and name the trade-offs. Sokrates lays out exactly that shape live, and Go Deeper handles the follow-up.</p>
+
+  <h3>Is there an AI that listens to the interviewer and suggests answers?</h3>
+  <p>Yes. Sokrates transcribes the interviewer and you on separate channels and drafts an answer as each question lands. No bot joins the call.</p>
+
+  <h3>Can I use AI in a Zoom interview?</h3>
+  <p>Sokrates works alongside Zoom, Google Meet and Microsoft Teams with nothing installed in the meeting app, and its overlay is excluded from screen capture. Whether outside help is allowed is up to each employer, so read the interview guidelines and follow them.</p>
+
+  <h3>Is there an AI assistant for sales calls that suggests responses?</h3>
+  <p>Yes. Meeting mode gives you 3–6 short bullets with the facts and arguments you need, helps when a prospect pushes back on price or timing, and ends with a recap and action items.</p>
+
+  <h3>Does the overlay show up when I share my screen?</h3>
+  <p>No. It's excluded from screen capture at the operating-system level (NSWindow sharingType on macOS, SetWindowDisplayAffinity on Windows), so it doesn't appear in a shared screen or a recording.</p>
+
+  <h3>Do your transcripts stay on your device?</h3>
+  <p>A saved transcript does: "Save transcript" writes the file to a folder you choose. Your session history also keeps transcripts and answers, and you can delete any session. Audio is never stored.</p>
+
+  <h3>Does Sokrates work on Mac and Windows?</h3>
+  <p>Yes: macOS on Apple Silicon and Windows 10/11 64-bit, with one account on both. Linux and Intel Macs aren't supported.</p>
+
+  <h3>Is there an interview assistant free plan?</h3>
+  <p>Yes. One live session a day with 10 minutes of transcription, 3 snapshots, every mode and the overlay. No card, and it resets daily.</p>
+
+  <h3>What languages does it support?</h3>
+  <p>Live transcription covers 40+ languages. Answers come in the language of the question or the session language you set, including Hebrew, right-to-left.</p>
+
+  <hr>
+  <div class="cta">
+    <p>Start free at sokrates.cloud.</p>
+    <a class="button" href="https://www.sokrates.cloud">Get Sokrates free</a>
+    <p class="tagline">Hear the question. See the answer.</p>
+  </div>
+</article>
+</body>
+</html>
+
+</body></html>
